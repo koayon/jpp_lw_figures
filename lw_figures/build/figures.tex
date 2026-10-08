@@ -1,0 +1,289 @@
+\documentclass{article} % For LaTeX2e
+\usepackage[preprint]{styles/colm2026_conference} % options: submission (anonymous), preprint, final (camera-ready)
+
+% Optional math commands from https://github.com/goodfeli/dlbook_notation.
+\input{styles/math_commands}
+
+\usepackage[utf8]{inputenc} % allow utf-8 input
+\usepackage[T1]{fontenc}    % use 8-bit T1 fonts
+% \usepackage{hyperref}       % hyperlinks
+% \usepackage{url}            % simple URL typesetting
+\usepackage{booktabs}       % professional-quality tables
+\usepackage{array}          % >{\raggedright\arraybackslash} column specs (hyperparameter table)
+\usepackage{amsfonts}       % blackboard math symbols
+\usepackage{nicefrac}       % compact symbols for 1/2, etc.
+\usepackage{microtype}      % microtypography
+\usepackage{graphicx}
+\usepackage[table]{xcolor} % colour-codes the three J++ changes in the Methods equations;
+% [table] gives \cellcolor for Table 3's shaded cells
+\usepackage{float}         % [H] placement: put floats exactly where they appear in the source
+\usepackage{subcaption}    % side-by-side sub-figures with (a)/(b) captions
+\usepackage[bottom]{footmisc} % keep footnotes at the foot of the page with \raggedbottom
+\usepackage{natbib}
+\usepackage{doi}
+\usepackage{amssymb}
+% Sandy added
+% \usepackage{todonotes}
+\usepackage{amsmath}
+\usepackage{appendix}
+\usepackage{titletoc}         % partial table of contents for appendix
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{import}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{xurl}           % let long URLs in the references break anywhere (avoids stretched lines)
+\usepackage{cleveref}      % must be loaded after hyperref
+
+\title{J++ Lens: Jacobian Filtering Enables More Faithful Workspace Lenses}
+% Title is important - it should be clear, snappy and informative.
+% Make it SEO-friendly; include whatever people might search for when
+% vaguely looking for your paper.
+
+\author{{Kola Ayonrinde} \\
+  Anthropic Fellows \\
+  \texttt{koayon@gmail.com} \\
+  \And
+  {Jack Lindsey} \\
+  Anthropic \\
+  %
+}
+
+\import{paper_sections/}{0__macros.tex}
+
+% Always pay attention to LaTeX warning lest they get out of hand later.
+
+% Let pages end short instead of stretching the space between paragraphs
+% (the style sets \flushbottom; with [H] floats that leaves large gaps).
+\raggedbottom
+
+\pagestyle{empty}
+\begin{document}
+\typeout{LWGEOM \the\hoffset;\the\oddsidemargin;\the\textwidth;\the\paperwidth;\the\paperheight}
+\begin{figure}[H]
+  \centering
+\begin{subfigure}[b]{2.70in}
+    \includegraphics{figures/jpp_final_figures/1a_headline_recall.pdf}
+    \caption{}
+    \label{fig:hook_recall}
+  \end{subfigure}\hfill
+  \begin{subfigure}[b]{2.80in}
+    \includegraphics{figures/jpp_final_figures/1b_hook_readouts.pdf}
+    \caption{}
+    \label{fig:hook_readouts}
+  \end{subfigure}
+  
+  
+\end{figure}
+\thispagestyle{empty}
+\clearpage
+\begin{figure}[H]
+  \centering
+\includegraphics[width=\linewidth]{figures/jpp_final_figures/2_legend.pdf}
+  \\[2pt]
+  \begin{subfigure}[b]{2.30in}
+    \includegraphics{figures/jpp_final_figures/2a_recall_by_task.pdf}
+    \caption{
+}
+    \label{fig:task_performance_comparison}
+  \end{subfigure}\hfill
+  \begin{subfigure}[b]{1.75in}
+    \includegraphics{figures/jpp_final_figures/2b_recall_by_layer.pdf}
+    \caption{
+}
+    \label{fig:layers_performance_comparison}
+  \end{subfigure}\hfill
+  \begin{subfigure}[b]{1.45in}
+    \includegraphics{figures/jpp_final_figures/2c_probe_swap.pdf}
+    \caption{
+}
+    \label{fig:causal_probe_swap}
+  \end{subfigure}
+  
+  
+\end{figure}
+\thispagestyle{empty}
+\clearpage
+\begin{figure}[H]
+  \centering
+\includegraphics{figures/jpp_final_figures/3_expert_performance.pdf}
+  
+  
+\end{figure}
+\thispagestyle{empty}
+\clearpage
+\begin{figure}[H]
+  \centering
+\includegraphics{figures/jpp_final_figures/5_gradient_norms.pdf}
+  
+  
+\end{figure}
+\thispagestyle{empty}
+\clearpage
+\begin{figure}[H]
+  \centering
+  \includegraphics{figures/jpp_final_figures/7_directed_modulation.pdf}
+  
+  
+\end{figure}
+\thispagestyle{empty}
+\clearpage
+\begin{figure}[H]
+  \centering
+\includegraphics{figures/jpp_final_figures/8_clamp_ablation.pdf}
+  
+  
+\end{figure}
+\thispagestyle{empty}
+\clearpage
+\begin{figure}[H]
+  \centering
+\includegraphics{figures/jpp_final_figures/9_naming_vs_avoiding.pdf}
+  
+  
+\end{figure}
+\thispagestyle{empty}
+\clearpage
+\begin{figure}[H]
+  \centering
+  \includegraphics{figures/jpp_final_figures/17_late_flush_counts.pdf}
+  
+  
+\end{figure}
+\thispagestyle{empty}
+\clearpage
+\begin{figure}[H]
+  \centering
+  \includegraphics{figures/jpp_final_figures/8_clamp_ablation_all_lenses.pdf}
+  
+  
+\end{figure}
+\thispagestyle{empty}
+\clearpage
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\linewidth]{figures/jpp_final_figures/10_lens_readouts_multihop.pdf}
+  \\[6pt]
+  \includegraphics[width=\linewidth]{figures/jpp_final_figures/10_lens_readouts_multilingual.pdf}
+  \\[6pt]
+  \includegraphics[width=\linewidth]{figures/jpp_final_figures/10_lens_readouts_typo.pdf}
+  
+  
+\end{figure}
+\thispagestyle{empty}
+\clearpage
+\begin{figure}[H]
+  
+  \centering
+  \includegraphics[width=\linewidth]{figures/jpp_final_figures/10_lens_readouts_association.pdf}
+  \\[6pt]
+  \includegraphics[width=\linewidth]{figures/jpp_final_figures/10_lens_readouts_poetry.pdf}
+  
+\end{figure}
+\thispagestyle{empty}
+\clearpage
+\begin{figure}[H]
+  \centering
+\begin{subfigure}[b]{2.06in}
+    \includegraphics{figures/jpp_final_figures/6a_nonsemantic_share.pdf}
+    \caption{}
+    \label{fig:nonsense_tokens_share}
+  \end{subfigure}\hfill
+  \begin{subfigure}[b]{3.34in}
+    \includegraphics{figures/jpp_final_figures/6b_typo_readouts.pdf}
+    \caption{}
+    \label{fig:nonsense_tokens_readouts}
+  \end{subfigure}
+  
+  
+\end{figure}
+\thispagestyle{empty}
+\clearpage
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\linewidth]{figures/jpp_final_figures/11_expert_heatmaps.pdf}
+  
+  
+\end{figure}
+\thispagestyle{empty}
+\clearpage
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}{\linewidth}
+    \centering
+    \includegraphics[width=0.9\linewidth]{figures/jpp_final_figures/4_token_classes_l16.pdf}
+    \caption{}
+    \label{fig:token_classes}
+  \end{subfigure}
+  \\[6pt]
+  \begin{subfigure}{\linewidth}
+    \centering
+    \includegraphics[width=0.9\linewidth]{figures/jpp_final_figures/12_token_class_lifts.pdf}
+    \caption{}
+    \label{fig:token_class_lifts}
+  \end{subfigure}
+  
+  
+\end{figure}
+\thispagestyle{empty}
+\clearpage
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\linewidth]{figures/jpp_final_figures/B3_routing_shares.pdf}
+  
+  
+\end{figure}
+\thispagestyle{empty}
+\clearpage
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\linewidth]{figures/jpp_final_figures/E1_recall_by_layer_per_task.pdf}
+  
+  
+\end{figure}
+\thispagestyle{empty}
+\clearpage
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\linewidth]{figures/jpp_final_figures/14_jacobian_rank.pdf}
+  
+  
+\end{figure}
+\thispagestyle{empty}
+\clearpage
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\linewidth]{figures/jpp_final_figures/B2_expert_jacobian_similarity.pdf}
+  
+  
+\end{figure}
+\thispagestyle{empty}
+\clearpage
+\begin{figure}[H]
+  \centering
+  \includegraphics{figures/jpp_final_figures/15_ablation_waterfall.pdf}
+  
+  
+\end{figure}
+\thispagestyle{empty}
+\clearpage
+\begin{figure}[H]
+  \centering
+\includegraphics[width=\linewidth]{figures/jpp_final_figures/16_legend.pdf}
+  \\[2pt]
+  \begin{subfigure}[b]{2.70in}
+    \includegraphics{figures/jpp_final_figures/16a_fit_positions_per_sequence.pdf}
+    \caption{}
+    \label{fig:fit_positions_per_sequence}
+  \end{subfigure}\hfill
+  \begin{subfigure}[b]{2.70in}
+    \includegraphics{figures/jpp_final_figures/16b_fit_positions_total.pdf}
+    \caption{}
+    \label{fig:fit_positions_total}
+  \end{subfigure}
+  
+  
+\end{figure}
+\thispagestyle{empty}
+\clearpage
+\end{document}
